@@ -1,11 +1,7 @@
 "use strict";
 
 const e = require("express");
-
-const users = {
-  id: ["test"],
-  psword: ["test"],
-}
+const UserStorage = require("../../models/UserStorage");
 
 const output = {
   home: (req, res) => {
@@ -21,26 +17,25 @@ const output = {
 const process = {
   login: (req, res) => {
     const id = req.body.id,
-    psword = req.body.psword
+    psword = req.body.psword;
+    const users = UserStorage.getUsers("id", "psword");
+    const response = {};
     if(users.id.includes(id)) {
       const idx = users.id.indexOf(id);
       if(users.psword[idx] == psword) {
-        return res.json({
-          success: true,
-        })
+        response.success = true;
+        return res.json(response);
       }
       else {
-        return res.json({
-          success: false,
-          message: "비밀번호 불일치"
-        });
+        response.success = false;
+        response.message = "비밀번호 불일치";
+        return res.json(response);
       };
     }
     else {
-      return res.json({
-        success: false,
-        message: "존재하지 않는 계정"
-      });
+      response.success = false;
+      response.message = "존재하지 않는 계정";
+      return res.json(response);
     };
   }
 };
