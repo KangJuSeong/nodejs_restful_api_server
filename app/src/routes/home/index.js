@@ -4,10 +4,13 @@ const express = require("express");
 const router = express.Router();
 const ctrl = require("./home.ctrl")
 
-// 루트
+// 홈 화면
 router.get('/', ctrl.output.home);
-// 로그인
+// 로그인 화면
 router.get('/login', ctrl.output.login);
+// 회원가입 화면
+router.get('/register', ctrl.output.register);
+
 // 로그인 API
 router.post('/login', ctrl.process.login);
 
