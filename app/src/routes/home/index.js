@@ -13,6 +13,8 @@ router.get('/register', ctrl.output.register);
 
 // 로그인 API
 router.post('/login', ctrl.process.login);
+// 회원가입 API
+router.post('/register', ctrl.process.register);
 
 // 외부에서 사용할 수 있또록 exports
 module.exports = router;

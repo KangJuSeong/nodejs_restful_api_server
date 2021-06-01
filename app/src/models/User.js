@@ -20,6 +20,12 @@ class User {
       return { success: false, message: "비밀번호 불일치" };
     }
   }
+
+  register() {
+    const body = this.body;
+    
+
+  }
 }
 
 module.exports = User;
