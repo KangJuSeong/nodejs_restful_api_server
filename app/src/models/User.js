@@ -22,14 +22,14 @@ class User {
     }
   }
 
-  register() {
+  async register() {
     const client = this.body;
-    const success = UserStorage.save(client);
+    const success = await UserStorage.save(client);
     if(success) {
       return { success: success, message: "회원 가입 성공" };
     }
     else {
-      return { success: false, message: "회원 가입 실패" };
+      return { success: success, message: "이미 존재하는 계정" };
     }
   }
 }

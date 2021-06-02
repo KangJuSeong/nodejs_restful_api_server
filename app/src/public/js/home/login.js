@@ -12,7 +12,6 @@ function login() {
     id: id.value,
     psword: psword.value,
   };
-  console.log(id.value);
   // 서버로 데이터 전송
   fetch("/login", {
     method: "POST",

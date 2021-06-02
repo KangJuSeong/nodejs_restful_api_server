@@ -1,6 +1,1 @@
-{
-  "id": ["test"],
-  "psword": ["test"],
-  "name": ["test"],
-  "email": ["test@naver.com"]
-}
+{"id":["test","test2","test3","test4"],"psword":["test","test","test","test4"],"name":["test","test","test","test4"],"email":["test@naver.com","test","test","test4"]}

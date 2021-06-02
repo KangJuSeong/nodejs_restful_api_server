@@ -30,9 +30,12 @@ function register() {
   }).then((res) => res.json())
   .then((res) => {
     if(res.success == true) {
+      alert(res.message);
       location.href = "/login";
-    };
-    alert(res.message);
+    }
+    else {
+      alert(res.message);
+    }
   }).catch((err) => {
     console.error(err);
   });
