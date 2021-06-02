@@ -6,10 +6,11 @@ class User {
   constructor(body) {
     this.body = body;
   }
-
-  login() {
+  // await 을 쓰기위해서는 해당 함수가 async 구문이 있어야함.
+  async login() {
     const client = this.body;
-    const info = UserStorage.getUserInfo(client.id);
+    // info 가 promise를 반환하기 때문에 기다려줘야하는 await 구문 필요
+    const info = await UserStorage.getUserInfo(client.id);
     if (!info.id) {
       return { success: false, message: "존재하지 않는 계정" };
     }
