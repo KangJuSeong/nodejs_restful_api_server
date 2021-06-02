@@ -18,25 +18,22 @@ function register() {
     nm: nm.value,
     email: email.value,
   };
-  if (req.pw != check_pw) {
-    alert("비밀번호가 일치하지 않습니다.");
-  }
-  else {
-    // 서버로 데이터 전송
-    fetch("/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(req),
-    }).then((res) => res.json())
-    .then((res) => {
-      if(res.success == true) {
-        location.href = "/login";
-      };
-      alert(res.message);
-    }).catch((err) => {
-      console.error(err);
-    });
-  };
+  if(!id.value || !pw.value || !nm.value || !email.value)  return alert("빈칸을 입력해주세요.");
+  if (req.pw != check_pw) return alert("비밀번호가 일치하지 않습니다.");
+  // 서버로 데이터 전송
+  fetch("/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(req),
+  }).then((res) => res.json())
+  .then((res) => {
+    if(res.success == true) {
+      location.href = "/login";
+    };
+    alert(res.message);
+  }).catch((err) => {
+    console.error(err);
+  });
 };

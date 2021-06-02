@@ -6,6 +6,7 @@ class UserStorage {
     id: ["test"],
     psword: ["test"],
     name: ["test"],
+    email: ["test@naver.com"],
   };
 
   // 외부에서 객체 생성 없이 바로 사용하기 위해 static(정적)메서드라고 선언해야 함.
@@ -29,6 +30,10 @@ class UserStorage {
       return newUser;
     }, {});
     return userInfo;
+  };
+
+  static save(client) {
+    return true;
   };
 };
 
