@@ -11,15 +11,15 @@ class User {
     const client = this.body;
     // info 가 promise를 반환하기 때문에 기다려줘야하는 await 구문 필요
     const info = await UserStorage.getUserInfo(client.id);
-    if (!info.id) {
-      return { success: false, message: "존재하지 않는 계정" };
-    }
-    if (info.id === client.id && info.psword === client.psword) {
-      return { success: true };
-    }
-    else {
-      return { success: false, message: "비밀번호 불일치" };
-    }
+    // if (!info.id) {
+    //   return { success: false, message: "존재하지 않는 계정" };
+    // }
+    // if (info.id === client.id && info.psword === client.psword) {
+    //   return { success: true };
+    // }
+    // else {
+    //   return { success: false, message: "비밀번호 불일치" };
+    // }
   }
 
   async register() {
